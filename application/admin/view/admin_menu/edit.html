@@ -1,0 +1,59 @@
+<fieldset class="layui-elem-field layui-field-title">
+    <legend>菜单编辑</legend>
+</fieldset>
+<form class="layui-form css-eidtform" id="editForm">
+    <div class="layui-form-item">
+        <label class="layui-form-label">菜单名称</label>
+        <div class="layui-input-block">
+            <input type="input" name="name" lay-verify="title" autocomplete="off" placeholder="请输入名称" class="layui-input css-width" value="{$data.name}">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">父级</label>
+        <div class="layui-input-block" style="width: 46.5%">
+            <select name="pid">
+                <option value="0">根菜单</option>
+                {$parentTree}
+            </select>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">控制器</label>
+        <div class="layui-input-block">
+            <input type="input" name="controller" placeholder="请输入控制器" autocomplete="off" class="layui-input css-width" value="{$data.controller}">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">方法</label>
+        <div class="layui-input-block">
+            <input type="input" name="action" placeholder="请输入方法" autocomplete="off" class="layui-input css-width" value="{$data.action}">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">参数</label>
+        <div class="layui-input-block">
+            <input type="input" name="param" placeholder="请输入参数" autocomplete="off" class="layui-input css-width" value="{$data.param}">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">排序</label>
+        <div class="layui-input-block">
+            <input type="input" name="sort" placeholder="请输入排序" autocomplete="off" class="layui-input css-width" value="{$data.sort}">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">备注</label>
+        <div class="layui-input-block">
+            <input type="input" name="remark" placeholder="请输入备注" autocomplete="off" class="layui-input css-width" value="{$data.remark}">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <input type="hidden" name="id" value="{$id|default=0}">
+            <input type="submit" class="layui-btn" lay-filter="submit" value="提交" lay-submit/>
+            <button type="reset" class="layui-btn layui-btn-primary" onclick="editBankUrl('/admin/admin_menu/index')">返回</button>
+        </div>
+    </div>
+</form>
+
+

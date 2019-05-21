@@ -1,0 +1,31 @@
+<form class="layui-form css-eidtform-dialog" id="editForm">
+    <div class="layui-form-item">
+        <label class="layui-form-label">分类名称</label>
+        <div class="layui-input-block">
+            <input type="input" name="name" lay-verify="name" autocomplete="off" placeholder="请输入分类名称" class="layui-input css-width">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">排序</label>
+        <div class="layui-input-block">
+            <input type="input" name="sort" placeholder="请输入排序" autocomplete="off" class="layui-input css-width">
+        </div>
+    </div>
+    <!--<div class="layui-form-item">-->
+        <!--<label class="layui-form-label">状态</label>-->
+        <!--<div class="layui-input-block">-->
+            <!--<input type="radio" name="status" value="1" title="启用"  checked=""><div class="layui-unselect layui-form-radio"><i class="layui-anim layui-icon"></i><div>启用</div></div>-->
+            <!--<input type="radio" name="status" value="2" title="禁用"><div class="layui-unselect layui-form-radio layui-form-radioed"><i class="layui-anim layui-icon"></i><div>禁用</div></div>-->
+        <!--</div>-->
+    <!--</div>-->
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <input type="submit" class="layui-btn" lay-filter="submit" value="提交" lay-submit/>
+            <!--<button type="reset" class="layui-btn layui-btn-primary" onclick="javascript:layer.closeAll();">返回</button>-->
+            <button type="reset" class="layui-btn layui-btn-primary" onclick="javascript:history.back(-1);">返回</button>
+        </div>
+    </div>
+</form>
+
+

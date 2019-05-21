@@ -1,0 +1,385 @@
+<div id="gloBox" class="default">
+    <div id="gloTop" class="clearfix">
+        <div class="gtLeft clearfix">
+            <div class="logo "><img src="http://www.luffy.com/static/public/images/logo.png" alt="EduaskCMS"/></div>
+            <div class="menuBar" >
+                <ul class="list">
+                    <li class="bar_line bar_top"></li>
+                    <li class="bar_line bar_mid"></li>
+                    <li class="bar_line bar_foot"></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="gtRght">
+            <ul class="layui-nav list" lay-filter="">
+                <li class="layui-nav-item circle gohome first"><a class="tooltip" data-tip-text="访问前台" data-tip-type="3" href="/Home/index/index.html" target="_blank"><i class="fa fa-home"></i></a></li>
+                <li class="layui-nav-item circle"><a class="tooltip javascript" rel="full_screen" data-tip-text="F11全屏" data-tip-type="3" href="javascript:void(0);"><i class="fa fa-arrows "></i></a></li>
+                <li class="layui-nav-item circle"><a class="tooltip javascript" rel="simple_clear" data-tip-text="清除缓存" data-tip-type="3" href="/run/tool/clearcache.html"><i class="fa fa-remove" style="margin: -7px 0 0 -5px;"></i></a></li>
+                <li class="layui-nav-item circle"><a target="_blank" class="tooltip" data-tip-text="培训手册" data-tip-type="3" href="https://www.kancloud.cn/laowu199/e_manual"><i class="fa fa-book" style="margin: -7px 0 0 -7px;"></i></a></li>
+                <li class="layui-nav-item circle skin-down"><a  href="javascript:void(0);"><i class="fa fa-yelp" style="margin: -7px 0 0 -6px;"></i></a>
+                    <div class="skin-show clearfix">
+                        <a data-skin="default" rel="change_skin"  style="background: #009688;" class="javascript"></a>
+                        <a data-skin="green" rel="change_skin"  style="background: rgba(0,166,90,1);" class="javascript"></a>
+                        <a data-skin="pink"  rel="change_skin" style="background: rgba(250,96,134,1);" class="javascript"></a>
+                        <a data-skin="blue"  rel="change_skin" style="background: rgba(0,192,239,1);" class="javascript"></a>
+                        <a data-skin="red"   rel="change_skin" style="background: rgba(250,42,0,1);" class="javascript"></a>
+                    </div>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;" class="admin-user" >
+                        <span class="admin-user-headpic"><img  src="/images/admin/default_headimg.png" alt=""/></span><span class="admin-user-name en-font">eduask</span>
+                    </a>
+                    <dl class="layui-nav-child">
+                        <i class="i"></i>
+                        <dd><a href="/run/user/modify/id/1.html" class="new_tab" data-icon="fa-user"><i class="fa fa-pencil" aria-hidden="true"></i>修改密码</a></dd>
+                        <dd><a href="" class="javascript" rel="lockScreen"><i class="fa fa-lock" aria-hidden="true" style="padding-right: 2px;padding-left: 2px;"></i>锁屏(Alt+L)</a></dd>
+                        <dd class="bt"><a href="/run/user/logout.html"><i class="fa fa-sign-out" aria-hidden="true"></i>注销登录</a></dd>
+                    </dl>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+    <div id="gloLeft" class="sizing">
+        <div class="leftbg"></div>
+        <div id="leftBar">
+            <ul class="list" id="gloMenu">
+                <li class="current">
+                    <div class="navT">
+                        <a href="/run/index/index.html"><i data-icon="fa-qrcode" class="fa fa-qrcode   animated" ></i><cite>栏目管理</cite></a>
+                    </div>
+                    <div class="navC">
+                        <ul class="list">
+                            <li class="b"><a href="{:url('roundScheduleIndicator/index')}"><i data-icon="fa-qrcode" class="fa fa-angle-right fa-lg animated"></i><cite>栏目结构</cite></a></li>
+                            <li class="s"><a href="/run/menu/lists.html" class="tooltip" data-tip-text="栏目结构" data-tip-bg="#009688" data-title="栏目结构" data-icon="fa-qrcode"><i class="fa fa-reorder"></i></a></li>
+                            <li class="b"><a href="/run/admin_menu/lists.html"><i data-icon="fa-qrcode" class="fa fa-angle-right fa-lg animated"></i><cite>后台栏目</cite></a></li>
+                            <li class="s"><a href="/run/admin_menu/lists.html" class="tooltip" data-tip-text="后台栏目" data-tip-bg="#009688" data-title="后台栏目" data-icon="fa-qrcode"><i class="fa fa-reorder"></i></a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="current">
+                    <div class="navT">
+                        <a href="/run/index/index.html"><i data-icon="fa-file-text" class="fa fa-file-text   animated" ></i><cite>内容管理</cite></a>
+                    </div>
+                    <div class="navC">
+                        <ul class="list">
+                            <li class="b"><a href="/run/menu/content.html"><i data-icon="fa-file-text" class="fa fa-angle-right fa-lg animated"></i><cite>内容结构</cite></a></li>
+                            <li class="s"><a href="/run/menu/content.html" class="tooltip" data-tip-text="内容结构" data-tip-bg="#009688" data-title="内容结构" data-icon="fa-file-text"><i class="fa fa-reorder"></i></a></li>
+                            <li class="b"><a href="/run/dustbin/lists.html"><i data-icon="fa-file-text" class="fa fa-angle-right fa-lg animated"></i><cite>回收站</cite></a></li>
+                            <li class="s"><a href="/run/dustbin/lists.html" class="tooltip" data-tip-text="回收站" data-tip-bg="#009688" data-title="回收站" data-icon="fa-file-text"><i class="fa fa-reorder"></i></a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="current">
+                    <div class="navT">
+                        <a href="/run/index/index.html"><i data-icon="fa-user" class="fa fa-user   animated" ></i><cite>用户管理</cite></a>
+                    </div>
+                    <div class="navC">
+                        <ul class="list">
+                            <li class="b"><a href="/run/user/lists.html"><i data-icon="fa-user" class="fa fa-angle-right fa-lg animated"></i><cite>用户列表</cite></a></li>
+                            <li class="s"><a href="/run/user/lists.html" class="tooltip" data-tip-text="用户列表" data-tip-bg="#009688" data-title="用户列表" data-icon="fa-user"><i class="fa fa-reorder"></i></a></li>
+                            <li class="b"><a href="/run/user/create.html"><i data-icon="fa-user" class="fa fa-angle-right fa-lg animated"></i><cite>添加用户</cite></a></li>
+                            <li class="s"><a href="/run/user/create.html" class="tooltip" data-tip-text="添加用户" data-tip-bg="#009688" data-title="添加用户" data-icon="fa-user"><i class="fa fa-reorder"></i></a></li>
+                            <li class="b"><a href="/run/user_group/lists.html"><i data-icon="fa-user" class="fa fa-angle-right fa-lg animated"></i><cite>用户组列表</cite></a></li>
+                            <li class="s"><a href="/run/user_group/lists.html" class="tooltip" data-tip-text="用户组列表" data-tip-bg="#009688" data-title="用户组列表" data-icon="fa-user"><i class="fa fa-reorder"></i></a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="current">
+                    <div class="navT">
+                        <a href="/run/index/index.html"><i data-icon="fa-key" class="fa fa-key   animated" ></i><cite>权限管理</cite></a>
+                    </div>
+                    <div class="navC">
+                        <ul class="list">
+                            <li class="b"><a href="/run/power/content.html"><i data-icon="fa-key" class="fa fa-angle-right fa-lg animated"></i><cite>用户授权</cite></a></li>
+                            <li class="s"><a href="/run/power/content.html" class="tooltip" data-tip-text="用户授权" data-tip-bg="#009688" data-title="用户授权" data-icon="fa-key"><i class="fa fa-reorder"></i></a></li>
+                            <li class="b"><a href="/run/power_tree/lists.html"><i data-icon="fa-tree" class="fa fa-angle-right fa-lg animated"></i><cite>权限节点</cite></a></li>
+                            <li class="s"><a href="/run/power_tree/lists.html" class="tooltip" data-tip-text="权限节点" data-tip-bg="#009688" data-title="权限节点" data-icon="fa-tree"><i class="fa fa-reorder"></i></a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="current">
+                    <div class="navT">
+                        <a href="/run/index/index.html"><i data-icon="fa-file-image-o" class="fa fa-file-image-o   animated" ></i><cite>广告管理</cite></a>
+                    </div>
+                    <div class="navC">
+                        <ul class="list">
+                            <li class="b"><a href="/run/ad_position/lists.html"><i data-icon="fa-file-image-o" class="fa fa-angle-right fa-lg animated"></i><cite>广告位列表</cite></a></li>
+                            <li class="s"><a href="/run/ad_position/lists.html" class="tooltip" data-tip-text="广告位列表" data-tip-bg="#009688" data-title="广告位列表" data-icon="fa-file-image-o"><i class="fa fa-reorder"></i></a></li>
+                            <li class="b"><a href="/run/ad_position/create.html"><i data-icon="fa-file-image-o" class="fa fa-angle-right fa-lg animated"></i><cite>添加广告位</cite></a></li>
+                            <li class="s"><a href="/run/ad_position/create.html" class="tooltip" data-tip-text="添加广告位" data-tip-bg="#009688" data-title="添加广告位" data-icon="fa-file-image-o"><i class="fa fa-reorder"></i></a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="current">
+                    <div class="navT">
+                        <a href="/run/index/index.html"><i data-icon="fa-th-large" class="fa fa-th-large   animated" ></i><cite>字典管理</cite></a>
+                    </div>
+                    <div class="navC">
+                        <ul class="list">
+                            <li class="b"><a href="/run/dictionary/lists.html"><i data-icon="fa-th-large" class="fa fa-angle-right fa-lg animated"></i><cite>字典列表</cite></a></li>
+                            <li class="s"><a href="/run/dictionary/lists.html" class="tooltip" data-tip-text="字典列表" data-tip-bg="#009688" data-title="字典列表" data-icon="fa-th-large"><i class="fa fa-reorder"></i></a></li>
+                            <li class="b"><a href="/run/dictionary/create.html"><i data-icon="fa-th-large" class="fa fa-angle-right fa-lg animated"></i><cite>添加字典</cite></a></li>
+                            <li class="s"><a href="/run/dictionary/create.html" class="tooltip" data-tip-text="添加字典" data-tip-bg="#009688" data-title="添加字典" data-icon="fa-th-large"><i class="fa fa-reorder"></i></a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="current">
+                    <div class="navT">
+                        <a href="/run/index/index.html"><i data-icon="fa-gears" class="fa fa-gears   animated" ></i><cite>系统设置</cite></a>
+                    </div>
+                    <div class="navC">
+                        <ul class="list">
+                            <li class="b"><a href="/run/setting/lists.html"><i data-icon="fa-gears" class="fa fa-angle-right fa-lg animated"></i><cite>设置列表</cite></a></li>
+                            <li class="s"><a href="/run/setting/lists.html" class="tooltip" data-tip-text="设置列表" data-tip-bg="#009688" data-title="设置列表" data-icon="fa-gears"><i class="fa fa-reorder"></i></a></li>
+                            <li class="b"><a href="/run/setting_group/lists.html"><i data-icon="fa-gears" class="fa fa-angle-right fa-lg animated"></i><cite>设置组列表</cite></a></li>
+                            <li class="s"><a href="/run/setting_group/lists.html" class="tooltip" data-tip-text="设置组列表" data-tip-bg="#009688" data-title="设置组列表" data-icon="fa-gears"><i class="fa fa-reorder"></i></a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="current">
+                    <div class="navT">
+                        <a href="/run/index/index.html"><i data-icon="fa-search-plus" class="fa fa-search-plus   animated" ></i><cite>开发工具</cite></a>
+                    </div>
+                    <div class="navC">
+                        <ul class="list">
+                            <li class="b"><a href="/run/model/lists.html"><i data-icon="fa-file-text" class="fa fa-angle-right fa-lg animated"></i><cite>模型管理</cite></a></li>
+                            <li class="s"><a href="/run/model/lists.html" class="tooltip" data-tip-text="模型管理" data-tip-bg="#009688" data-title="模型管理" data-icon="fa-file-text"><i class="fa fa-reorder"></i></a></li>
+                            <li class="b"><a href="/run/query_data/lists.html"><i data-icon="fa-line-chart" class="fa fa-angle-right fa-lg animated"></i><cite>提取数据</cite></a></li>
+                            <li class="s"><a href="/run/query_data/lists.html" class="tooltip" data-tip-text="提取数据" data-tip-bg="#009688" data-title="提取数据" data-icon="fa-line-chart"><i class="fa fa-reorder"></i></a></li>
+                            <li class="b"><a href="/run/tool/addm.html"><i data-icon="fa-book" class="fa fa-angle-right fa-lg animated"></i><cite>模型生成</cite></a></li>
+                            <li class="s"><a href="/run/tool/addm.html" class="tooltip" data-tip-text="模型生成" data-tip-bg="#009688" data-title="模型生成" data-icon="fa-book"><i class="fa fa-reorder"></i></a></li>
+                            <li class="b"><a href="/run/tool/addv.html"><i data-icon="fa-camera" class="fa fa-angle-right fa-lg animated"></i><cite>模板创建</cite></a></li>
+                            <li class="s"><a href="/run/tool/addv.html" class="tooltip" data-tip-text="模板创建" data-tip-bg="#009688" data-title="模板创建" data-icon="fa-camera"><i class="fa fa-reorder"></i></a></li>
+                            <li class="b"><a href="/run/tool/addc.html"><i data-icon="fa-paper-plane" class="fa fa-angle-right fa-lg animated"></i><cite>控制器生成</cite></a></li>
+                            <li class="s"><a href="/run/tool/addc.html" class="tooltip" data-tip-text="控制器生成" data-tip-bg="#009688" data-title="控制器生成" data-icon="fa-paper-plane"><i class="fa fa-reorder"></i></a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="gloRght" lay-allowClose="true">
+        <div class="layui-tab admin-nav-card" lay-filter="admin-tab" >
+            <div class="topBg coverBg"></div>
+            <div class="tab-bg"></div>
+            <a href="javascript:void(0);" class="tab-prev"><i class="fa fa-angle-double-left fa-2x"></i></a>
+            <a href="javascript:void(0);" class="tab-next"><i class="fa fa-angle-double-right fa-2x"></i></a>
+            <ul class="layui-tab-title">
+                <li class="layui-this">
+                    <i class="fa fa-desktop" aria-hidden="true"></i><cite>后台首页</cite>
+                </li>
+            </ul>
+            <div class="layui-tab-content">
+                <div class="layui-tab-item layui-show admin_home">
+                    <div class="admin_content">
+                        <div class="admin_content_box">
+                            <div id="admHome">
+
+                                <div class="homeRght">
+                                    <div class="headimg">
+                                        <a href="/run/member/modify/parent_id/1.html" data-icon="fa-user" data-title="修改信息" class="new_tab"><img  src="/images/admin/default_headimg.png" alt=""/></a>
+                                    </div>
+                                    <div class="welcome en-font">
+                                        您好！<span>eduask</span>
+                                        <a href="/run/user/logout.html" ><i style="color: red;" class="fa fa-sign-out" aria-hidden="true"></i></a>
+                                    </div>
+                                    <div class="time bline en-font">
+                                        <b></b>
+                                        <i class="fa fa-clock-o" aria-hidden="true"></i><span class="showtime">2018-09-19 09:22:49</span>
+                                    </div>
+                                    <div class="info bline en-font">
+                                        真实姓名：<span class="c">未设置</span>
+                                    </div>
+                                    <div class="info bline en-font">
+                                        登录时间：<span class="c">2018-09-18 17:17:27</span>
+                                    </div>
+                                    <div class="info bline en-font">
+                                        登录地址：<span class="c">127.0.0.1</span>
+                                    </div>
+
+                                    <div class="notice">
+                                        <div class="con">
+                                            <div class="layui-btn-group skin">
+                                                <a href="/run/feedback/lists.html" class="layui-btn new_tab" data-title="留言列表" data-icon="fa-pencil-square-o">留言<span class="layui-badge layui-bg-gray">0</span></a>
+                                                <a class="layui-btn" onclick="layer.msg('敬请期待')">订单<span class="layui-badge layui-bg-gray">0</span></a>
+                                                <a class="layui-btn" onclick="layer.msg('敬请期待')">消息<span class="layui-badge layui-bg-gray">0</span></a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="quick">
+                                        <div class="con">
+                                            <div class="layui-btn-group">
+                                                <a href="/run/tool/getlog.html" class="layui-btn layui-btn-primary">下载日志</a>
+                                                <a href="/run/tool/removelog.html" class="layui-btn layui-btn-primary javascript" rel="simple_clear">清除日志</a>
+                                                <a href="/run/tool/switchtrace.html" class="layui-btn layui-btn-primary javascript" rel="switch_trace">关闭Trace</a>
+                                            </div>
+                                            <div class="layui-btn-group">
+                                                <a href="/run/tool/clearcache.html" class="layui-btn layui-btn-primary javascript" rel="simple_clear">清除缓存</a>
+                                                <a href="/run/tool/removetemp.html" class="layui-btn layui-btn-primary javascript" rel="simple_clear" >清临时文件</a>
+                                                <a href="https://www.kancloud.cn/laowu199/e_manual" target="_blank" class="layui-btn layui-btn-primary">培训手册</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="homeLeft">
+                                    <div class="cms_count">
+                                        <ul class="grid">
+                                            <li class="li-1">
+                                                <div class="info">
+                                                    <a href="/run/article/lists.html" class="new_tab" data-title="文章列表" data-icon="fa-file-text">
+                                                        <i class="icon"><img  src="/images/admin/article.png" alt=""/></i>
+                                                        <span class="number en-font">0</span>
+                                                        <span class="name">文章</span>
+                                                    </a>
+                                                </div>
+
+                                            </li>
+                                            <li class="li-2">
+                                                <div class="info">
+                                                    <a href="/run/product/lists.html" class="new_tab" data-title="产品列表" data-icon="fa-camera">
+                                                        <i class="icon"><img  src="/images/admin/product.png" alt=""/></i>
+                                                        <span class="number en-font">0</span>
+                                                        <span class="name">产品</span>
+                                                    </a>
+                                                </div>
+                                            </li>
+                                            <li class="li-3">
+                                                <div class="info">
+                                                    <a href="/run/album/lists.html" class="new_tab" data-title="图集列表" data-icon="fa-image">
+                                                        <i class="icon"><img  src="/images/admin/album.png" alt=""/></i>
+                                                        <span class="number en-font">0</span>
+                                                        <span class="name">图集</span>
+                                                    </a>
+                                                </div>
+                                            </li>
+                                            <li class="li-4">
+                                                <div class="info">
+                                                    <a href="/run/user/lists.html" class="new_tab" data-title="会员列表" data-icon="fa-users">
+                                                        <i class="icon"><img  src="/images/admin/user.png" alt=""/></i>
+                                                        <span class="number en-font">1</span>
+                                                        <span class="name">会员</span>
+                                                    </a>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="cms_info clearfix">
+                                        <div class="you">
+                                            <div class="info">
+                                                <div class="title en-font">使用者：<a href="/run/setting/lists.html"  class="new_tab" data-title="设置列表" data-icon=" fa-gears"><i class="fa fa-pencil-square-o"></i></a></div>
+                                                <div class="con">
+                                                    <ul class="list">
+                                                        <li><i class="fa fa-thumbs-up"></i>名称：<span>EduaskCMS</span></li>
+                                                        <li><i class="fa fa-wifi"></i>网址：<span class="en-font"><a href="http://www.zkkm.com/" target="_blank">http://www.zkkm.com/</a></span></li>
+                                                        <li><i class="fa fa-phone"></i>电话：<span class="en-font">公司电话</span></li>
+                                                        <li><i class="fa fa-envelope"></i>邮箱：<span class="en-font">公司邮箱</span></li>
+                                                        <li><i class="fa fa-map-marker"></i> 地址：<span>公司地址</span></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="dev">
+                                            <div class="info">
+                                                <div class="title en-font">开发者：</div>
+                                                <div class="con">
+                                                    <ul class="list">
+                                                        <li><i class="fa fa-thumbs-up"></i>名称：<span>开发企业名称</span></li>
+                                                        <li><i class="fa fa-wifi"></i>网址：<span class="en-font"><a href="开发企业网址" target="_blank">开发企业网址</a></span></li>
+                                                        <li><i class="fa fa-phone"></i>电话：<span class="en-font">开发企业电话</span></li>
+                                                        <li><i class="fa fa-envelope"></i>邮箱：<span class="en-font">开发企业邮箱</span></li>
+                                                        <li><i class="fa fa-map-marker"></i> 地址：<span>开发企业地址</span></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="cms_about clearfix">
+                                        <div class="server">
+                                            <div class="info">
+                                                <div class="con">
+                                                    <table class="layui-table">
+                                                        <tr>
+                                                            <th width="25%">存储配额限制</th>
+                                                            <th width="25%">配额已使用</th>
+                                                            <th width="25%">配额续费日期</th>
+                                                            <th>域名到期日期</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>1GB</td>
+                                                            <td  class="skin">
+                                                                <a href="/run/tool/getsitesize.html" class="javascript link" rel="get_site_size">『计算』 <span id="showSiteSize" class="layui-badge layui-bg-orange">0KB</span></a>
+                                                            </td>
+                                                            <td>不关心</td>
+                                                            <td>不关心</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>操作系统</th>
+                                                            <th>服务器环境</th>
+                                                            <th>服务器IP</th>
+                                                            <th>上传最大限制</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>WINNT</td>
+                                                            <td>Apache</td>
+                                                            <td>127.0.0.1</td>
+                                                            <td>64M</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>PHP版本</th>
+                                                            <th>MYSQL版本</th>
+                                                            <th>脚本超时时间</th>
+                                                            <th>CURL支持</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>5.5.12</td>
+                                                            <td>5.6.17</td>
+                                                            <td>120S</td>
+                                                            <td>YES</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>系统官网</th>
+                                                            <th>建站手册</th>
+                                                            <th>检查更新</th>
+                                                            <th>系统版本</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="skin"><a href="http://www.eduaskcms.xin" class="link" target="_blank">『访问』</a></td>
+                                                            <td class="skin"><a href="https://www.kancloud.cn/laowu199/e_use"  class="link" target="_blank">『查阅』</a></td>
+                                                            <td class="skin"><a href="https://gitee.com/eduaskcms/eduaskcms" class="link" target="_blank">『求点赞』</a></td>
+                                                            <td>EduaskCMS V1.0.4</td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="lockScreen" >
+    <div class="init">
+        <div class="relative">
+            <div class="lockTime en-font"></div>
+            <div class="pic"><img  src="/images/admin/default_headimg.png" alt=""/><p class="en-font">eduask</p></div>
+        </div>
+        <div class="wrbox">
+            <input  type="password" id="screenPwd" class="wrin" value="" autocomplete="off" placeholder="请输入密码解锁.."/><br /><button id="closeLock" class="layui-btn">立即解锁</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+<form class="layui-form css-eidtform-dialog" id="editForm">
+    <div class="layui-form-item">
+        <label class="layui-form-label">分类名称</label>
+        <div class="layui-input-block">
+            <input type="input" name="name" lay-verify="name" autocomplete="off" placeholder="请输入分类名称" class="layui-input css-width" value="{$data.name}">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">排序</label>
+        <div class="layui-input-block">
+            <input type="input" name="sort" placeholder="请输入排序" autocomplete="off" class="layui-input css-width" value="{$data.sort}">
+        </div>
+    </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <input type="hidden" name="id" value="{$id|default=0}">
+            <input type="submit" class="layui-btn" lay-filter="submit" value="提交" lay-submit/>
+            <button type="reset" class="layui-btn layui-btn-primary" onclick="editBankUrl('/admin/article_category/index')">返回</button>
+        </div>
+    </div>
+</form>
+
+
+

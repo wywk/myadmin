@@ -1,0 +1,53 @@
+
+<div class="layui-row container">
+    <div class="main-content">
+        <input value="{$id}" name="id" class="role_id" type="hidden">
+        <table class="layui-table">
+            <colgroup>
+                <col width="200">
+                <col>
+            </colgroup>
+            <thead>
+            <tr>
+                <th>模块</th>
+                <th>方法</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            {foreach $data as $key=>$vo }
+                <tr>
+                    <td class="listTitle">
+                        <span class="text">{$vo.name}</span>
+                        <span class="faCheckBox {if in_array($vo.id,$meun_ids)} checkClass {/if}" data-id="{$vo.id}"></span>
+                    </td>
+                    <td class="listContent">
+                        <ul>
+                            {foreach $vo.child as $k=>$v }
+                            <li>
+                                <span class="checkBox {if in_array($v.id,$meun_ids)} checkClass {/if}" data-id="{$v.id}"></span>
+                                <span class="text">{$v.name}</span>
+                            </li>
+                            {/foreach}
+                        </ul>
+                    </td>
+                </tr>
+            {/foreach}
+            <tr>
+                <td class="listTitle">
+                    <span class="text">全选</span>
+                    <span class="allCheckBox"></span>
+                </td>
+                <td class="listContent allCheckCon">
+                    <ul >
+                        <li>
+                            <button class="allCkButton submitButton">提 交</button>
+                            <button class="allCkBack" onclick="editBankUrl('/admin/admin_role/index')">返 回</button>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

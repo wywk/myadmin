@@ -1,0 +1,119 @@
+<fieldset class="layui-elem-field layui-field-title">
+    <legend>用户添加</legend>
+</fieldset>
+<form class="layui-form css-eidtform" id="editForm">
+        <div class="layui-form-item">
+            <label class="layui-form-label">门店名称</label>
+            <div class="layui-input-block">
+                <input type="text" name="name" value="" lay-verify="" autocomplete="" placeholder="请输门店名称" class="layui-input css-width">
+            </div>
+        </div>
+    </div>
+    <div style="display:flex">
+        <div class="layui-form-item">
+            <label class="layui-form-label">logo</label>
+            <!--<div class="layui-input-inline">-->
+            <input type="hidden" name="logo_path" lay-verify="" id="LAY_avatarSrc" placeholder="图片地址" >
+            <!--</div>-->
+            <div class="layui-input-inline layui-btn-container layui-upload" style="width: auto;">
+                <button type="button" class="layui-btn layui-btn-primary" id="LAY_avatarUpload">
+                    <i class="layui-icon"></i>上传图片
+                </button>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <!--<label class="layui-form-label"></label>-->
+            <div class="layui-input-block" style="margin-left:20px;">
+                <img class="layui-upload-img" id="demo1">
+                <p id="demoText"></p>
+            </div>
+        </div>
+    </div>
+    <div class="layui-form-item">
+            <label class="layui-form-label">联系人</label>
+            <div class="layui-input-block">
+                <input type="text" name="link_man" value="" lay-verify="link_man" autocomplete="off" placeholder="请输入联系人" class="layui-input css-width">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">联系电话</label>
+            <div class="layui-input-block">
+                <input type="text" name="link_tel" value="" lay-verify="link_tel" autocomplete="off" placeholder="请输入联系电话" class="layui-input css-width">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">营业时间</label>
+            <div class="layui-input-block">
+                <input type="text" name="open_time" class="layui-input css-width" id="inputTime" readonly placeholder=" - ">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">城市联动</label>
+            <div class="layui-input-block">
+                <div class="layui-input-inline " >
+                    <select name="province" class="j-province" lay-verify="" lay-search="" lay-skin="select" lay-filter="province" >
+                        <option value="">请选择省</option>
+                        {$city_option}
+                    </select>
+                </div>
+                <div class="layui-input-inline" >
+                    <select name="city" lay-verify="" lay-search="" lay-skin="select" lay-filter="city" id="city">
+                        <option value="">请选择市/县</option>
+                    </select>
+                </div>
+                <div class="layui-input-inline" >
+                    <select name="area" lay-verify="" lay-search=""lay-skin="select" lay-filter="area" id="area">
+                        <option value="">请选择镇区</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">坐标地址</label>
+            <div class="layui-input-block">
+                <input type="text" name="addr" value="" lay-verify="link_man" autocomplete="off" id="addr_cur" placeholder="请输入详细地址" class="layui-input css-width">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">经纬度</label>
+            <div class="layui-input-block">
+                <input type="text" name="tude" value="" lay-verify="link_man" autocomplete="off" placeholder="经纬度" id="poi_cur" readonly class="layui-input css-width">
+                <!--<div class="layui-input-inline">-->
+                    <!--<input type="text" name="addr" value="" lay-verify="link_man" autocomplete="off" placeholder="详细地址" id="addr_cur" readonly class="layui-input">-->
+                <!--</div>-->
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">详细地址</label>
+            <div class="layui-input-block">
+                {$tencentMapCoordinatePickup}
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">状态</label>
+            <div class="layui-input-block">
+                <input type="radio" name="status" value="1" title="启用" checked="">
+                <input type="radio" name="status" value="2" title="禁用">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">简介：</label>
+            <div class="layui-input-block">
+                <textarea name="brief" placeholder="" class="layui-textarea css-width"></textarea>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">排序</label>
+            <div class="layui-input-block">
+                <input type="text" name="sort" value="" lay-verify="link_man" autocomplete="off" placeholder="请输入排序" class="layui-input css-width">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn"  lay-submit="" lay-filter="setmyinfo">确认修改</button>
+                <button type="reset" class="layui-btn layui-btn-primary" onclick="window.location.href='/admin/store/index'">返回</button>
+            </div>
+        </div>
+</form>

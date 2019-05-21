@@ -1,0 +1,189 @@
+
+<div class="layui-layer-content fileups">
+    <div class="layui-row">
+        <div class="file-group">
+            <ul class="nav-new">
+                <li class="ng-scope active" data-group-id="-1">
+                    <a class="group-name" href="javascript:void(0);" title="全部">全部</a>
+                </li>
+                <li class="ng-scope" data-group-id="0">
+                    <a class="group-name" href="javascript:void(0);" title="未分组">未分组</a>
+                </li>
+            </ul>
+            <a class="group-add" href="javascript:void(0);">新增分组</a>
+        </div>
+        <div class="file-list layui-container">
+            <div class="file-list-top">
+                <div class="searchBox layui-form layui-inline">
+                    <select name="choose" id="selects" lay-filter="test">
+                        <option value="0" data-method="0">移动至</option>
+                        <option value="1"  data-method="1">未分组1</option>
+                        <option value="2"  data-method="2">未分组1</option>
+                    </select>
+                </div>
+                <div class="layui-btn layui-btn-primary layui-inline picdelete">
+                    <i class="layui-icon layui-icon-delete"></i>删除
+                </div>
+                <button type="button" class="layui-btn layui-btn-primary ups" id="upimgs"> <i class="layui-icon ">&#xe654;</i>上传图片</button>
+            </div>
+            <div id="file-list-body" class="v-box-body">
+                <ul class="file-list-item">
+                </ul>
+            </div>
+            <div id="pageups"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function(){
+        //上传图片
+        layui.use('upload', function(){
+            var $ = layui.jquery
+                ,upload = layui.upload;
+            //多图片上传
+            upload.render({
+                elem: '#upimgs'
+                ,url: '/upload/'
+                ,multiple: true
+                ,before: function(obj){
+                    //预读本地文件示例，不支持ie8
+                    obj.preview(function(index, file, result){
+                        str="<li data-imgs="+index+">" +
+                            "<div class='img-cover' style='background-image:url("+result+")' data-image="+result+"></div>" +
+                            "<div class='select-mask'>" +
+                            "<img src='../../static/images/chose.png'>"+
+                            "</div>" +
+                            "<p class='file-name am-text-center am-text-truncate'>"+file.name+"</p>" +
+                            "</li>"
+                        $(".file-list-item").append(str);
+                    });
+                }
+                ,done: function(res){
+                    //上传完毕
+                }
+            });
+        });
+        //select
+        layui.use('form',
+            function() {
+                var form = layui.form;
+                form.on('select(test)', function(data){
+                    var arr= countids();
+                    if(arr[0].length ==0) {
+                        layer.msg('您还没有选择任何文件~');
+                        return false;
+                    }else{
+                        console.log(arr);
+                    }
+                });
+                form.render('select');
+            });
+
+        //添加分组名称
+        $(".group-add").click(function(){
+            layer.prompt({title: '请输入新分组名称，并确认'}, function(pass, index){
+                layer.close(index);
+                var str="<li class='ng-scope' data-group-id="+index+" title="+pass+">" +
+                    "<a class='group-edit' href='javascript:void(0);' title='编辑分组' onclick='edits(this)'>" +
+                    "<i class='layui-icon layui-icon-edit blue'></i>" +
+                    "</a>"+
+                    "<a class='group-name' href='javascript:void(0);'>"+pass+"</a>" +
+                    "<a class='group-delete' href='javascript:void(0);' title='删除分组' onclick='dels(this)'>" +
+                    "<i class='layui-icon layui-icon-close-fill blue'></i>" +
+                    "</a>"+
+                    " </li>";
+                $(".nav-new").append(str);
+                layui.use('form',
+                    function() {
+                        var form = layui.form;
+                        $("#selects").append("<option value="+index+">"+pass+"</option>");
+                        form.render('select');
+                    });
+            });
+        });
+
+        //左侧点击
+        $('body').on('click','.nav-new .ng-scope',function(){
+            $(this).addClass('active').siblings(".nav-new .ng-scope").removeClass('active');
+        });
+        //图片的点击添加样式
+        $('body').on('click','.file-list-item li',function(){
+            $(this).find(".select-mask").toggleClass('display');
+        });
+
+        //只显示上一页、下一页
+        layui.use(['laypage', 'layer'], function(){
+            var laypage = layui.laypage
+                ,layer = layui.layer;
+            laypage.render({
+                elem: 'pageups'
+                ,count: 50
+                ,layout: ['prev', 'next']
+                ,jump: function(obj, first){
+                    if(!first){
+                        layer.msg('第 '+ obj.curr +' 页');
+                    }
+                }
+            });
+        });
+        // var str="<li data-imgs='4444'>" +
+        //     "<div class='img-cover' style='background-image:url(http://static.yoshop.xany6.com/20180928170740719de4655.png)' data-images='http://static.yoshop.xany6.com/20180928170740719de4655.png'></div>" +
+        //     "<div class='select-mask'>" +
+        //     "<img src='.././../static/images/chose.png'>"+
+        //     "</div>" +
+        //     "<p class='file-name am-text-center am-text-truncate'>20180928170740719de4655.png</p>" +
+        //     "</li>"
+        // $(".file-list-item").append(str);
+
+        //点击删除
+        $(".picdelete").on('click',function(){
+            var arr =countids();
+            if(arr[0].length ==0) {
+                layer.msg('您还没有选择任何文件~');
+                return false;
+            }else {
+                layer.confirm('确定删除选中的文件吗？', {
+                    btn: ['确定', '取消']
+                }, function () {
+                    layer.msg('删除成功！', {icon: 1});
+                    $(".file-list-item li").each(function () {
+                        var imgs = $(this).attr('data-imgs');
+                        if (arr[0].indexOf(imgs) > -1) {
+                            $(this).remove();
+                        }
+                    })
+                }, function () {
+
+                });
+            }
+        });
+    })
+    //左侧点击修改名字
+    function edits(which){
+        var title=$(which).next().html();
+        layer.prompt({title: '修改新分组名称', value: title}, function(pass, index){
+            layer.close(index);
+            $(which).next().html(pass);
+        });
+    }
+
+    //获取图片选中的值
+    function countids(){
+        var arrs=[],imgs=[];
+        $(".file-list-item li").each(function () {
+            if($(this).find(".select-mask").hasClass('display')){
+                arrs.push($(this).attr("data-imgs"));
+                imgs.push($(this).find(".img-cover").attr('data-images'));
+            }
+        });
+        var objs=(arrs+'|'+imgs).split('|');
+        return objs;
+    }
+    //左侧的删除
+    function dels(which) {
+        $(which).parent().remove();
+        $(which).parent().attr("data-group-id");//获取对应的id
+    }
+</script>
+

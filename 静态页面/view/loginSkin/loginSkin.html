@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="../../../public/static/public/layui-2.3.0/css/layui.css" />
+    <link rel="stylesheet" type="text/css" href="../../static/css/loginSkin.css" />
+</head>
+<body>
+    <div class="bigTitle">
+        <p>皮肤设置</p>
+    </div>
+    <div class="container">
+        <div class="txt">
+            皮肤选择
+        </div>
+        <div class="skinChose">
+            <div class="mrSelected">
+                <img src="../../static/images/bg5.png" alt=""/>
+                <div class="checkBtn">
+                    <button class="layui-btn layui-btn-xs">已使用</button>
+                </div>
+                <div class="img">
+                    <img src="../../static/images/selected.png" alt=""/>
+                </div>
+            </div>
+            <div class="selected">
+                <img id="bgImg" src="../../static/images/bg2.png" alt=""/>
+                <div class="img">
+                    <img src="../../static/images/selected.png" alt=""/>
+                </div>
+                <div class="mask1">
+                    <p>名字</p>
+                    <div>
+                        <button class="layui-btn layui-btn-xs bgSelect">选择背景</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="modal" style="display:none;">
+        <div class="imgBox">
+            <img src="../../static/images/bg1.png" alt=""/>
+            <div class="img">
+                <img src="../../static/images/selected.png" alt=""/>
+            </div>
+            <div class="mask2">
+                <div class="btn">
+                    <button class="layui-btn layui-btn-xs use">使用</button>
+                </div>
+            </div>
+        </div>
+        <div class="imgBox">
+            <img src="../../static/images/bg1.png" alt=""/>
+            <div class="img">
+                <img src="../../static/images/selected.png" alt=""/>
+            </div>
+            <div class="mask2">
+                <div class="btn">
+                    <button class="layui-btn layui-btn-xs use">使用</button>
+                </div>
+            </div>
+        </div>
+        <div class="imgBox">
+             <img src="../../static/images/bg3.png" alt=""/>
+            <div class="img">
+                <img src="../../static/images/selected.png" alt=""/>
+            </div>
+            <div class="mask2">
+                <div class="btn">
+                    <button class="layui-btn layui-btn-xs use">使用</button>
+                </div>
+            </div>
+        </div>
+        <div class="imgBox">
+            <img src="../../static/images/bg3.png" alt=""/>
+            <div class="img">
+                <img src="../../static/images/selected.png" alt=""/>
+            </div>
+            <div class="mask2">
+                <div class="btn">
+                    <button class="layui-btn layui-btn-xs use">使用</button>
+                </div>
+            </div>
+        </div>
+        <div class="imgBox">
+            <img src="../../static/images/bg2.png" alt=""/>
+            <div class="img">
+                <img src="../../static/images/selected.png" alt=""/>
+            </div>
+            <div class="mask2">
+                <div class="btn">
+                    <button class="layui-btn layui-btn-xs use">使用</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../../../public/static/public/js/jquery-3.2.1.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../../public/static/public/layui-2.3.0/layui.all.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+        $(function(){
+//            var originSrc = $("#bgImg").attr("src");
+            $(".bgSelect").click(function(){
+                layer.open({
+                    type: 1,
+                    title: ['背景选择', 'font-size:14px;color:#0c9b8d;background-color:#fff;border-bottom:none'],
+                    skin: 'layui-layer-demo', //样式类名
+                    closeBtn: 0, //不显示关闭按钮
+                    anim: 17,
+                    shadeClose: true, //开启遮罩关闭
+                    content: $("#modal"),
+                    end:function(){
+                        $("#modal").css("display","none");
+//                        $("#bgImg").attr("src",originSrc);
+                    }
+                });
+            });
+//            $("#modal").on("mouseenter", "img",function(){
+//                var imgSrc = $(this).attr("src");
+//                var oldSrc = $("#bgImg").attr("src");
+//                if(imgSrc != oldSrc){
+//                    $("#bgImg").attr("src",imgSrc);
+//                }
+//            })
+            $("#modal").on("click",".use",function(){
+                var imgSrc=$(this).parent().parent().prev().prev().attr("src");
+                console.log(imgSrc);
+                $("#bgImg").attr("src",imgSrc);
+                $(".selected .img").css("display","block");
+                $(".mrSelected .img").css("display","none");
+                $("#modal .img").css("display","none");
+                $(".mrSelected .checkBtn button").html("使用");
+                $(".mrSelected .checkBtn button").css("background","#009688");
+                $(".mrSelected .checkBtn button").css("color","#fff");
+                $(this).parent().parent().prev().css("display","block");
+                $(this).attr("disabled","disabled").parent().parent().parent().siblings().find(".use").removeAttr("disabled");
+                $(this).css("background","#ddd").parent().parent().parent().siblings().find(".use").css("background","#009688");
+                $(this).css("color","#000").parent().parent().parent().siblings().find(".use").css("color","#fff");
+                $(this).html("已使用").parent().parent().parent().siblings().find(".use").html("使用");
+            });
+            $(".checkBtn button").click(function(){
+                if($(".selected .img").length==1){
+                    $(this).parent().next().css("display","block");
+                    $(".mrSelected .checkBtn button").html("已使用");
+                    $(".mrSelected .checkBtn button").css("background","#ddd");
+                    $(".mrSelected .checkBtn button").css("color","#000");
+                    $(".selected .img").css("display","none");
+                }
+            });
+        })
+
+    </script>
+</body>
+</html>

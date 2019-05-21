@@ -1,0 +1,44 @@
+.container {
+    padding: 15px 15px 0px 15px;
+}
+.searchButtton {
+    vertical-align: top;
+}
+.searchButtton button {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.searchGroup .layui-input-inline {
+    margin-right: 0;
+}
+.layui-form-label {
+    width: unset;
+    padding-right: 0;
+}
+label {
+    color: #444;
+}
+.operateButtton {
+    padding-left: 26px;
+}
+.operateButtton button {
+    margin-bottom: 10px;
+    margin-left: 0;
+    margin-right: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    line-height: 30px;
+    height: unset;
+}
+.searchGroup .layui-form-item .layui-input-inline {
+    width: 148px;
+}
+.mengban img {
+    width: 79px;
+    height: 79px;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    margin-left: -40px;
+    margin-top: -40px;
+}

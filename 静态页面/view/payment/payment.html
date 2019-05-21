@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>支付设置</title>
+		<link rel="stylesheet" type="text/css" href="../../../public/static/public/layui/css/layui.css" />
+		<link rel="stylesheet" type="text/css" href="../../static/css/payment.css" />
+	</head>
+	<body>
+		<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+			<ul class="layui-tab-title">
+				<li class="layui-this">支付配置</li>
+				<li>短信配置</li>
+			</ul>
+			<div class="layui-tab-content">
+				<div class="layui-tab-item layui-show">
+					<div class="layui-row">
+						<div class="layui-col-md5 layui-col-sm5 leftPan">
+							<div class="title"><span class="line"></span>支付宝支付配置</div>
+							<form class="layui-form" action="" id="form1">
+								<div class="layui-form-item inputPan">
+									<label class="layui-form-label">支付宝支付配置</label>
+									<div class="layui-input-block switch">
+										<input type="checkbox" name="switch" lay-skin="switch" lay-text="ON|OFF">
+									</div>
+								</div>
+								<div class="layui-form-item inputPan">
+									<label class="layui-form-label layui-col-md4 layui-col-sm4">支付宝APPID</label>
+									<div class="layui-input-block layui-col-md6 layui-col-sm6 inputBlock">
+										<input type="text" name="title" required lay-verify="required" placeholder="请输入" autocomplete="off" class="layui-input">
+									</div>
+								</div>
+								<div class="layui-form-item inputPan">
+									<label class="layui-form-label layui-col-md4 layui-col-sm4">支付宝付款标题</label>
+									<div class="layui-input-block layui-col-md6 layui-col-sm6 inputBlock">
+										<input type="text" name="title" required lay-verify="required" placeholder="请输入" autocomplete="off" class="layui-input">
+									</div>
+								</div>
+
+								<div class="layui-form-item layui-form-text">
+									<label class="layui-form-label">支付宝公钥</label>
+									<div class="layui-input-block textArea">
+										<textarea name="desc" placeholder="请输入支付宝公钥" class="layui-textarea"></textarea>
+									</div>
+									<label class="layui-form-label">支付宝私钥</label>
+									<div class="layui-input-block textArea">
+										<textarea name="desc" placeholder="请输入支付宝私钥" class="layui-textarea"></textarea>
+									</div>
+								</div>
+								<div class="layui-form-item btnPan">
+									<div class="layui-input-block">
+										<button class="layui-btn" lay-submit lay-filter="formDemo">立即保存</button>
+										<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+									</div>
+								</div>
+							</form>
+						</div>
+						<!-- <div class="layui-col-md1">1</div> -->
+						<div class="layui-col-md5 layui-col-sm5 rightPan">
+							<div class="title"><span class="line"></span>微信支付配置</div>
+							<form class="layui-form" action="" id="form2">
+								<div class="layui-form-item inputPan">
+									<label class="layui-form-label">微信支付</label>
+									<div class="layui-input-block switch">
+										<input type="checkbox" name="switch" lay-skin="switch" lay-text="ON|OFF">
+									</div>
+								</div>
+								<div class="layui-form-item inputPan">
+									<label class="layui-form-label layui-col-md4 layui-col-sm4">微信APPID</label>
+									<div class="layui-input-block layui-col-md6 layui-col-sm6 inputBlock">
+										<input type="text" name="title" required lay-verify="required" placeholder="请输入" autocomplete="off" class="layui-input">
+									</div>
+								</div>
+								<div class="layui-form-item inputPan">
+									<label class="layui-form-label layui-col-md4 layui-col-sm4">微信商户号</label>
+									<div class="layui-input-block layui-col-md6 layui-col-sm6 inputBlock">
+										<input type="text" name="title" required lay-verify="required" placeholder="请输入" autocomplete="off" class="layui-input">
+									</div>
+								</div>
+								<div class="layui-form-item inputPan">
+									<label class="layui-form-label layui-col-md4 layui-col-sm4">微信商户支付秘钥</label>
+									<div class="layui-input-block layui-col-md6 layui-col-sm6 inputBlock">
+										<input type="text" name="title" required lay-verify="required" placeholder="请输入" autocomplete="off" class="layui-input">
+									</div>
+								</div>
+								<div class="layui-form-item inputPan">
+									<label class="layui-form-label layui-col-md4 layui-col-sm4">微信公众账号secret</label>
+									<div class="layui-input-block layui-col-md6 layui-col-sm6 inputBlock">
+										<input type="text" name="title" required lay-verify="required" placeholder="请输入" autocomplete="off" class="layui-input">
+									</div>
+								</div>
+
+								<div class="layui-form-item layui-form-text">
+									<label class="layui-form-label">微信安全证书</label>
+									<div class="layui-input-block upPan clearfix ">
+										<input type="text" name="title" required lay-verify="required" placeholder="未选择任何文件" autocomplete="off" class="layui-input">
+										<button type="button" class="layui-btn" id="test1">
+											<i class="layui-icon">&#xe67c;</i>上传文件
+										</button>
+									</div>
+									<label class="layui-form-label">微信支付证书</label>
+									<div class="layui-input-block upPan clearfix">
+										<input type="text" name="title" required lay-verify="required" placeholder="未选择任何文件" autocomplete="off" class="layui-input">
+										<button type="button" class="layui-btn" id="test1">
+											<i class="layui-icon">&#xe67c;</i>上传文件
+										</button>
+									</div>
+								</div>
+								<div class="layui-form-item btnPan">
+									<div class="layui-input-block">
+										<button class="layui-btn" lay-submit lay-filter="formDemo">立即保存</button>
+										<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+
+
+
+				</div>
+				<div class="layui-tab-item">
+					<div class="layui-col-md10 layui-col-sm10 rightPan">
+						<div class="title"><span class="line"></span>短信设置</div>
+						<form class="layui-form" action="" id="form2">
+
+							<div class="layui-form-item inputPan">
+								<label class="layui-form-label layui-col-md4 layui-col-sm4">accessKeyId</label>
+								<div class="layui-input-block layui-col-md6 layui-col-sm6 inputBlock">
+									<input type="text" name="title" required lay-verify="required" placeholder="请输入" autocomplete="off" class="layui-input">
+								</div>
+							</div>
+							<div class="layui-form-item inputPan">
+								<label class="layui-form-label layui-col-md4 layui-col-sm4">accessKeySceret</label>
+								<div class="layui-input-block layui-col-md6 layui-col-sm6 inputBlock">
+									<input type="text" name="title" required lay-verify="required" placeholder="请输入" autocomplete="off" class="layui-input">
+								</div>
+							</div>
+							<div class="layui-form-item inputPan">
+								<label class="layui-form-label layui-col-md4 layui-col-sm4">短信签名</label>
+								<div class="layui-input-block layui-col-md6 layui-col-sm6 inputBlock">
+									<input type="text" name="title" required lay-verify="required" placeholder="请输入" autocomplete="off" class="layui-input">
+								</div>
+							</div>
+							<div class="layui-form-item inputPan">
+								<label class="layui-form-label layui-col-md4 layui-col-sm4">短信模板(验证码)</label>
+								<div class="layui-input-block layui-col-md6 layui-col-sm6 inputBlock">
+									<input type="text" name="title" required lay-verify="required" placeholder="请输入" autocomplete="off" class="layui-input">
+								</div>
+							</div>
+							<div class="layui-form-item inputPan">
+								<label class="layui-form-label layui-col-md4 layui-col-sm4">短信模板(初始密码)</label>
+								<div class="layui-input-block layui-col-md6 layui-col-sm6 inputBlock">
+									<input type="text" name="title" required lay-verify="required" placeholder="请输入" autocomplete="off" class="layui-input">
+								</div>
+							</div>
+							
+							<div class="layui-form-item btnPan">
+								<div class="layui-input-block">
+									<button class="layui-btn" lay-submit lay-filter="formDemo">立即保存</button>
+									<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+
+		<script src="../../../public/static/public/layui-2.1/layui.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../../public/static/public/js/jquery-3.2.1.js" type="text/javascript" charset="utf-8"></script>
+
+		<script type="text/javascript">
+			layui.use('element', function() {
+				var $ = layui.jquery,
+					element = layui.element; //Tab的切换功能，切换事件监听等，需要依赖element模块
+
+			});
+			//Demo
+			layui.use('form', function() {
+				var form = layui.form;
+
+				//监听提交
+				form.on('submit(formDemo)', function(data) {
+					layer.msg(JSON.stringify(data.field));
+					return false;
+				});
+			});
+		</script>
+
+	</body>
+</html>

@@ -1,0 +1,41 @@
+<style>
+    .layui-table-tool-self
+</style>
+<table lay-filter="demo" id="demo" class="layui-table" lay-data="{id: 'js-table', height: 'full-250', cellMinWidth: 100, page: true, limit:20, url:'{:url('AdminUser/index')}',limits:[20, 40, 60, 80, 100],text: {none: '暂无相关数据'}}">
+    <thead>
+    <tr>
+        <th lay-data="{type:'radio'}"></th>
+        <th lay-data="{field:'key', width:100, sort: true, minWidth: 100}">编号</th>
+        <th lay-data="{field:'name', width:200}">账号名称</th>
+        <th lay-data="{field:'phone', width:200}">手机号码</th>
+        <th lay-data="{field:'telephone', width:200}">座机号码</th>
+        <th lay-data="{field:'format_status', width:200, templet: '#switchTpl', unresize: true}">账号状态</th>
+        <th lay-data="{field:'format_add_user', width:200}">操作用户</th>
+        <th lay-data="{field:'format_add_time', width:200}">操作时间</th>
+    </tr>
+    </thead>
+</table>
+<script type="text/html" id="switchTpl">
+    <input type="checkbox" name="status" lay-skin="switch" data-id="{{d.id}}" lay-text="启用|停用" lay-filter="sexDemo" {{ d.status == 1 ? 'checked' : '' }}>
+</script>
+<script type="text/javascript" id="switchTpl1">
+    // $('.sname',window.parent.document).attr('value',1111);
+    // let select_data = parent.select_data;
+    $(function () {
+        layui.use(['layer', 'table'], function () {
+            table = layui.table;
+            // let $ = layui.jquery;
+            let data = table.checkStatus('js-table');
+            console.log(data);
+            table.on('radio(demo)',function(obj){
+                console.log(111);
+                // 触发复选框后的回调函数
+                let data = table.checkStatus('js-table');
+                window.parent.select_data = data;
+                // console.log(window.parent.select_data);
+            })
+        });
+
+
+    })
+</script>

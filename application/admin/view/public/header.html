@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-cn" >
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="Keywords" content="" />
+    <meta name="Description" content="" />
+    <meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>EduaskCMS - 后台管理系统</title>
+    {$ViewFileSet->css($view_css, true)}
+    {$ViewFileSet->script($view_js, true)}
+</head>
+<script>
+    var layer;
+    $(function(){
+        layui.use(['layer'], function(){
+            layer = layui.layer;
+            layer.config({
+                zIndex:10000
+            });
+        })
+    })
+    HKUC.ajax_request.defaultSuccessHandlers= {
+        'success':function(rslt_msg,rslt_data){
+            layer.alert(rslt_msg,{
+                icon:1
+            });
+        },
+        'error':function(rslt_msg,rslt_data){
+            layer.alert(rslt_msg,{
+                icon:2
+            });
+        },
+        'nopower':function(msg,data){
+            layer.alert(msg,{
+                icon:2
+            });
+        }
+    };
+    HKUC.ajax_request.defaultErrorHandlers={
+        403:function(text,rerun){
+            layer.alert('登录超时，请刷新重新登录',{
+                icon:2
+            });
+        },
+        404:function(text,rerun){
+            layer.alert('页面不存在',{
+                icon:2
+            });
+        }
+    };
+    var winWidth = $(window).width();
+    var heiHeght = $(window).height();
+</script>
+<body>

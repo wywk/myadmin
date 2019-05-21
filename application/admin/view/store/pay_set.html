@@ -1,0 +1,172 @@
+
+		<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+			<ul class="layui-tab-title">
+				<li class="layui-this">支付配置</li>
+				<li>短信配置</li>
+			</ul>
+			<div class="layui-tab-content">
+				<div class="layui-tab-item layui-show">
+					<div class="layui-row">
+						<div class="layui-col-md5 layui-col-sm5 leftPan">
+							<div class="title"><span class="line"></span>支付宝支付配置</div>
+							<form class="layui-form" action="" id="form1">
+								<input type="hidden" name="type" value="ali">
+								<input type="hidden" name="store_id" value="{$id}">
+								<input type="hidden" name="id" value="{$info.id}">
+								<div class="layui-form-item inputPan">
+									<label class="layui-form-label">支付宝支付配置</label>
+									<div class="layui-input-block switch">
+										<input type="checkbox" name="ali_status" lay-skin="switch" {if $info.ali_status == 1 } checked {/if} lay-text="ON|OFF">
+									</div>
+								</div>
+								<div class="layui-form-item inputPan">
+									<label class="layui-form-label layui-col-md4 layui-col-sm4">支付宝APPID</label>
+									<div class="layui-input-block layui-col-md6 layui-col-sm6 inputBlock">
+										<input type="text" name="ali_appid" value="{$info.ali_appid}" required lay-verify="required" placeholder="请输入" autocomplete="off" class="layui-input">
+									</div>
+								</div>
+								<div class="layui-form-item inputPan">
+									<label class="layui-form-label layui-col-md4 layui-col-sm4">支付宝付款标题</label>
+									<div class="layui-input-block layui-col-md6 layui-col-sm6 inputBlock">
+										<input type="text" name="ali_pay_title" value="{$info.ali_pay_title}" required lay-verify="required" placeholder="请输入" autocomplete="off" class="layui-input">
+									</div>
+								</div>
+								<div class="layui-form-item layui-form-text">
+									<label class="layui-form-label">支付宝公钥</label>
+									<div class="layui-input-block textArea">
+										<textarea name="ali_public_key"  placeholder="请输入支付宝公钥" class="layui-textarea">{$info.ali_public_key}</textarea>
+									</div>
+									<label class="layui-form-label">支付宝私钥</label>
+									<div class="layui-input-block textArea">
+										<textarea name="ali_private_key" placeholder="请输入支付宝私钥" class="layui-textarea">{$info.ali_private_key}</textarea>
+									</div>
+								</div>
+								<div class="layui-form-item btnPan">
+									<div class="layui-input-block">
+										<button class="layui-btn" lay-submit lay-filter="formDemo">立即保存</button>
+										<button type="reset" class="layui-btn layui-btn-primary" onclick="window.location.href='/admin/store/index'">返回</button>
+									</div>
+								</div>
+							</form>
+						</div>
+						<!-- <div class="layui-col-md1">1</div> -->
+						<div class="layui-col-md5 layui-col-sm5 rightPan">
+							<div class="title"><span class="line"></span>微信支付配置</div>
+							<form class="layui-form" action="" id="form2">
+								<input type="hidden" name="type" value="wx">
+								<input type="hidden" name="store_id" value="{$id}">
+								<input type="hidden" name="id" value="{$info.id}">
+								<div class="layui-form-item inputPan">
+									<label class="layui-form-label">微信支付</label>
+									<div class="layui-input-block switch">
+										<input type="checkbox" name="wx_status" lay-skin="switch" lay-text="ON|OFF">
+									</div>
+								</div>
+								<div class="layui-form-item inputPan">
+									<label class="layui-form-label layui-col-md4 layui-col-sm4">微信APPID</label>
+									<div class="layui-input-block layui-col-md6 layui-col-sm6 inputBlock">
+										<input type="text" name="wx_appid" value="{$info.wx_appid}" required lay-verify="required" placeholder="请输入" autocomplete="off" class="layui-input">
+									</div>
+								</div>
+								<div class="layui-form-item inputPan">
+									<label class="layui-form-label layui-col-md4 layui-col-sm4">微信商户号</label>
+									<div class="layui-input-block layui-col-md6 layui-col-sm6 inputBlock">
+										<input type="text" name="wx_mchid" value="{$info.wx_mchid}" required lay-verify="required" placeholder="请输入" autocomplete="off" class="layui-input">
+									</div>
+								</div>
+								<div class="layui-form-item inputPan">
+									<label class="layui-form-label layui-col-md4 layui-col-sm4">微信商户支付秘钥</label>
+									<div class="layui-input-block layui-col-md6 layui-col-sm6 inputBlock">
+										<input type="text" name="wx_key" value="{$info.wx_key}" required lay-verify="required" placeholder="请输入" autocomplete="off" class="layui-input">
+									</div>
+								</div>
+								<div class="layui-form-item inputPan">
+									<label class="layui-form-label layui-col-md4 layui-col-sm4">微信公众账号secret</label>
+									<div class="layui-input-block layui-col-md6 layui-col-sm6 inputBlock">
+										<input type="text" name="wx_appsecret" value="{$info.wx_appsecret}" required lay-verify="required" placeholder="请输入" autocomplete="off" class="layui-input">
+									</div>
+								</div>
+
+								<div class="layui-form-item layui-form-text">
+									<label class="layui-form-label">微信安全证书</label>
+									<div class="layui-input-block upPan clearfix ">
+										<input type="text" name="wx_cert_path" id="wx_cert_path"  disabled value="{$info.wx_cert_path}" required lay-verify="required" placeholder="未选择任何文件" autocomplete="off" class="layui-input">
+										<button type="button" class="layui-btn" id="aq_cert">
+											<i class="layui-icon">&#xe67c;</i>上传文件
+										</button>
+									</div>
+									<label class="layui-form-label">微信支付证书</label>
+									<div class="layui-input-block upPan clearfix">
+										<input type="text" name="wx_key_path" disabled id="wx_key_path"  value="{$info.wx_key_path}" required lay-verify="required" placeholder="未选择任何文件" autocomplete="off" class="layui-input">
+										<button type="button" class="layui-btn" id="pay_cert">
+											<i class="layui-icon">&#xe67c;</i>上传文件
+										</button>
+									</div>
+								</div>
+								<div class="layui-form-item btnPan">
+									<div class="layui-input-block">
+										<button class="layui-btn" lay-submit lay-filter="formDemo">立即保存</button>
+										<button type="reset" class="layui-btn layui-btn-primary" onclick="window.location.href='/admin/store/index'">返回</button>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+
+
+
+				</div>
+				<div class="layui-tab-item">
+					<div class="layui-col-md10 layui-col-sm10 rightPan">
+						<div class="title"><span class="line"></span>短信设置</div>
+						<form class="layui-form" action="" id="form3">
+							<input type="hidden" name="type" value="sms">
+							<input type="hidden" name="store_id" value="{$id}">
+							<input type="hidden" name="id" value="{$sms_info.id}">
+							<div class="layui-form-item inputPan">
+								<label class="layui-form-label layui-col-md4 layui-col-sm4">accessKeyId</label>
+								<div class="layui-input-block layui-col-md6 layui-col-sm6 inputBlock">
+									<input type="text" name="accessKeyId" value="{$sms_info.accessKeyId}"  required lay-verify="required" placeholder="请输入" autocomplete="off" class="layui-input">
+								</div>
+							</div>
+							<div class="layui-form-item inputPan">
+								<label class="layui-form-label layui-col-md4 layui-col-sm4">accessKeySceret</label>
+								<div class="layui-input-block layui-col-md6 layui-col-sm6 inputBlock">
+									<input type="text" name="accessKeySceret" value="{$sms_info.accessKeySceret}" required lay-verify="required" placeholder="请输入" autocomplete="off" class="layui-input">
+								</div>
+							</div>
+							<div class="layui-form-item inputPan">
+								<label class="layui-form-label layui-col-md4 layui-col-sm4">短信签名</label>
+								<div class="layui-input-block layui-col-md6 layui-col-sm6 inputBlock">
+									<input type="text" name="signName" value="{$sms_info.signName}" required lay-verify="required" placeholder="请输入" autocomplete="off" class="layui-input">
+								</div>
+							</div>
+							<div class="layui-form-item inputPan">
+								<label class="layui-form-label layui-col-md4 layui-col-sm4">短信模板(验证码)</label>
+								<div class="layui-input-block layui-col-md6 layui-col-sm6 inputBlock">
+									<input type="text" name="code_one" value="{$sms_info.code_one}" required lay-verify="required" placeholder="请输入" autocomplete="off" class="layui-input">
+								</div>
+							</div>
+							<div class="layui-form-item inputPan">
+								<label class="layui-form-label layui-col-md4 layui-col-sm4">短信模板(初始密码)</label>
+								<div class="layui-input-block layui-col-md6 layui-col-sm6 inputBlock">
+									<input type="text" name="code_two" value="{$sms_info.code_two}" required lay-verify="required" placeholder="请输入" autocomplete="off" class="layui-input">
+								</div>
+							</div>
+							
+							<div class="layui-form-item btnPan">
+								<div class="layui-input-block">
+									<button class="layui-btn" lay-submit lay-filter="formDemo">立即保存</button>
+									<button type="reset" class="layui-btn layui-btn-primary" onclick="window.location.href='/admin/store/index'">返回</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<script type="text/javascript">
+
+		</script>
+

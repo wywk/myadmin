@@ -1,0 +1,70 @@
+<div class="layui-tab layui-tab-brief">
+    <ul class="layui-tab-title">
+        <li class="layui-this">来源列表</li>
+        <li>用户管理</li>
+        <li>权限分配</li>
+        <li>商品管理</li>
+        <li>订单管理</li>
+        <li>文件分类</li>
+    </ul>
+    <div class="layui-tab-content">
+        <div class="layui-tab-item layui-show">
+
+            <table lay-filter="admin_source" id="admin_source" class="layui-table" lay-data="{id: 'source-table', height: 'full-150', cellMinWidth: 200, page: true, limit:20, url:'{:url('AdminSource/index')}',limits:[20, 40, 60, 80, 100],defaultToolbar: ['filter'], toolbar: '#toolbarSource',text: {none: '暂无相关数据'}}">
+                <thead>
+                <tr>
+                    <th lay-data="{type:'checkbox'}"></th>
+                    <th lay-data="{field:'key', width:100, sort: true, minWidth: 100}">编号</th>
+                    <th lay-data="{field:'name', width:700}">来源名称</th>
+                    <th lay-data="{field:'sort', width:100}">排序</th>
+                    <th lay-data="{field:'format_add_user', width:200}">操作用户</th>
+                    <th lay-data="{field:'format_add_time', width:200}">操作时间</th>
+                    <th lay-data="{toolbar: '#source-operation'}">操作</th>
+                </tr>
+                </thead>
+            </table>
+            <script type="text/html" id="toolbarSource">
+                <div class="layui-btn-container">
+                    <button class="layui-btn layui-btn-sm deleteSourceAll">批量删除</button>
+                    <button class="layui-btn layui-btn-sm source-add" id="sourceAdd">添加</button>
+                </div>
+            </script>
+            <script type="text/html" id="source-operation">
+                <a class="layui-btn layui-btn-xs j-edit" data-href="/admin/admin_source/edit" lay-event="edit">编辑</a>
+                <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="drop" >删除</a>
+            </script>
+        </div>
+        <div class="layui-tab-item">
+           内容2
+        </div>
+        <div class="layui-tab-item">内容3</div>
+        <div class="layui-tab-item">内容4</div>
+        <div class="layui-tab-item">内容5</div>
+        <div class="layui-tab-item">
+
+            <table lay-filter="demo_zw" id="demo1" class="layui-table" lay-data="{id: 'js-table', height: 'full-150', cellMinWidth: 200, page: true, limit:20, url:'{:url('SystemGalleryGroup/index')}',limits:[20, 40, 60, 80, 100],defaultToolbar: ['filter'], toolbar: '#toolbarDemo',text: {none: '暂无相关数据'}}">
+                <thead>
+                <tr>
+                    <th lay-data="{type:'checkbox'}" class="checkbox-id" data-id="{field:'id'}"></th>
+                    <th lay-data="{field:'key', width:100, sort: true, minWidth: 100}">编号</th>
+                    <th lay-data="{field:'name', width:200}">分类名称</th>
+                    <th lay-data="{field:'sort', width:200}">排序</th>
+                    <th lay-data="{field:'format_add_user', width:200}">操作用户</th>
+                    <th lay-data="{field:'format_add_time', width:300}">操作时间</th>
+                    <th lay-data="{toolbar: '#operation'}">操作</th>
+                </tr>
+                </thead>
+            </table>
+            <script type="text/html" id="toolbarDemo">
+                <div class="layui-btn-container">
+                    <button class="layui-btn layui-btn-sm fileTypeDel">批量删除</button>
+                    <button class="layui-btn layui-btn-sm filetype-add" id="fileTypeAdd">添加</button>
+                </div>
+            </script>
+            <script type="text/html" id="operation">
+                <a class="layui-btn layui-btn-xs j-edit" id="fileTypeEdit" lay-event="fileTypeEdit">编辑</a>
+                <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="fileTypeDrop" >删除</a>
+            </script>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,153 @@
+<fieldset class="layui-elem-field layui-field-title">
+    <legend>用户编辑</legend>
+</fieldset>
+<form class="layui-form css-eidtform" id="editForm">
+        <div class="layui-form-item">
+            <label class="layui-form-label">门店名称</label>
+            <div class="layui-input-block">
+                <input type="text" name="name" value="{$info.name}" lay-verify="" autocomplete="" placeholder="请输入昵称" class="layui-input">
+                <input type="hidden" name="id" value="{$info.id}">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">logo</label>
+
+            <!--<div class="layui-input-inline">-->
+                <input type="hidden" name="logo_path" lay-verify="" id="LAY_avatarSrc" placeholder="图片地址" value="{$info.logo_path}" class="layui-input">
+            <!--</div>-->
+            <div class="layui-input-inline layui-btn-container layui-upload" style="width: auto;">
+                <button type="button" class="layui-btn layui-btn-primary" id="LAY_avatarUpload">
+                    <i class="layui-icon"></i>上传图片
+                </button>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label"></label>
+            <div class="layui-input-inline">
+                <img class="layui-upload-img" id="demo1" src="{$info.logo_path}">
+                <p id="demoText"></p>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">联系人</label>
+            <div class="layui-input-block">
+                <input type="text" name="link_man" value="{$info.link_man}" lay-verify="link_man" autocomplete="off" placeholder="请输入联系人" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">联系电话</label>
+            <div class="layui-input-block">
+                <input type="text" name="link_tel" value="{$info.link_tel}" lay-verify="link_tel" autocomplete="off" placeholder="请输入联系电话" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">营业时间</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="open_time" class="layui-input" id="inputTime" placeholder=" - " readonly value="{$info.open_time}">
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">城市联动</label>
+        <!--<div class="layui-form-item layui-form-pane">-->
+            <!--<label class="layui-form-label">城市联动</label>-->
+            <div class="layui-input-inline" >
+                <select name="province" lay-verify="" lay-search="" lay-skin="select" lay-filter="province" >
+                    <option value="">请选择省</option>
+                    {$province_option}
+                </select>
+            </div>
+            <div class="layui-input-inline" >
+                <select name="city" lay-verify="" lay-search="" lay-skin="select" lay-filter="city" id="city">
+                    <option value="">请选择市/县</option>
+                    {$city_option}
+                </select>
+            </div>
+            <div class="layui-input-inline" >
+                <select name="area" lay-verify="" lay-search=""lay-skin="select" lay-filter="area" id="area">
+                    <option value="">请选择镇区</option>
+                    {$area_option}
+                </select>
+            </div>
+        </div>
+        <!--<div class="layui-form-item">-->
+            <!--<label class="layui-form-label">详细地址</label>-->
+            <!--<div class="layui-input-block">-->
+                <!--<input type="text" name="addr" value="{$info.address}" lay-verify="link_man" autocomplete="off" placeholder="请输入联系人" class="layui-input">-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="layui-form-item">-->
+            <!--<div class="layui-inline">-->
+                <!--<label class="layui-form-label">经纬度</label>-->
+                <!--<div class="layui-input-inline" style="width: 100px;">-->
+                    <!--<input type="text" name="y_line" placeholder="经度" id ='latitude' autocomplete="off" class="layui-input" value="{$info.longitude}">-->
+                <!--</div>-->
+                <!--<div class="layui-form-mid">-</div>-->
+                <!--<div class="layui-input-inline" style="width: 100px;">-->
+                    <!--<input type="text" name="x_line" placeholder="纬度" id="longitude" autocomplete="off" class="layui-input" value="{$info.latitude}">-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="layui-form-item">-->
+            <!--<label class="layui-form-label">地址查看</label>-->
+            <!--<div class="layui-input-block">-->
+                    <!--<input type="text" id="suggestId" size="20" name="addr_detail" value="" class="layui-input"/>-->
+                    <!--<div id="searchResultPanel" style="border:1px solid #C0C0C0;width:150px;height:auto; display:none;"></div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="layui-form-item">-->
+            <!--<label class="layui-form-label"></label>-->
+            <!--<div class="layui-inline">-->
+                <!--<div style="width:697px;height:450px;border:#ccc solid 1px;" id="allmap"></div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <div class="layui-form-item">
+            <label class="layui-form-label">详细地地址</label>
+            <div class="layui-input-block">
+                <input type="text" name="addr" value="{$info.address}" lay-verify="link_man" autocomplete="off"  id="addr_cur"  placeholder="请输入详细地址" class="layui-input css-width">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">坐标地址</label>
+            <div class="layui-input-block">
+                <input type="text" name="tude" value="{$info.longitude},{$info.latitude}" lay-verify="link_man" autocomplete="off" placeholder="经纬度" id="poi_cur" readonly class="layui-input css-width">
+                <!--<div class="layui-input-inline">-->
+                    <!--<input type="text" name="" value="" lay-verify="link_man" autocomplete="off" placeholder="详细地址" id="addr_cur" readonly class="layui-input">-->
+                <!--</div>-->
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">详细地址</label>
+            <div class="layui-input-block">
+                {$tencentMapCoordinatePickup}
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">状态</label>
+            <div class="layui-input-block">
+                <input type="radio" name="status" value="1" title="启用" {if $info.status == 1 } checked {/if} checked="">
+                <input type="radio" name="status" value="2" title="禁用" {if $info.status == 2 } checked {/if}>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">简介：</label>
+            <div class="layui-input-block">
+                <textarea name="brief" placeholder="" class="layui-textarea">{$info.desc}</textarea>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">排序</label>
+            <div class="layui-input-block">
+                <input type="text" name="sort" value="{$info.sort}" lay-verify="link_man" autocomplete="off" placeholder="请输入联系人" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn"  lay-submit="" lay-filter="setmyinfo">确认修改</button>
+                <button type="reset" class="layui-btn layui-btn-primary" onclick="editBankUrl('/admin/store/index')">返回</button>
+            </div>
+        </div>
+    </form>

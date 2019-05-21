@@ -1,0 +1,29 @@
+<form class="layui-form css-eidtform-dialog" id="editForm">
+    <div class="layui-form-item">
+        <label class="layui-form-label">角色名称：</label>
+        <div class="layui-input-block">
+            <input type="input" name="name" lay-verify="title" autocomplete="off" placeholder="请输入角色名称" class="layui-input css-width-dialog">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">父级：</label>
+        <div class="layui-input-block" style="width: 56%">
+            <select name="pid">
+                <option value="0">根角色</option>
+                {$parentTree}
+            </select>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">排序：</label>
+        <div class="layui-input-block">
+            <input type="input" name="sort" placeholder="请输入排序" autocomplete="off" class="layui-input css-width-dialog">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <input type="submit" value="提交"  class="layui-btn layui-btn-sm" lay-filter="submit" lay-submit/>
+        </div>
+    </div>
+</form>
+

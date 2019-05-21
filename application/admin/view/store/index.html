@@ -1,0 +1,56 @@
+<div class="layui-row container">
+	<div class="searchGroup layui-form">
+		<div class="layui-form-item layui-input-inline">
+			<label class="layui-form-label" for="title">店铺名称：</label>
+			<div class="layui-input-inline">
+				<input type="text" name="name" id="name" placeholder="请输入店铺名称" autocomplete="off" class="layui-input">
+			</div>
+		</div>
+		<div class="layui-form-item layui-input-inline">
+			<label class="layui-form-label" for="title">联系人：</label>
+			<div class="layui-input-inline">
+				<input type="text" name="link_man" id="link_man" placeholder="请输入联系人" autocomplete="off" class="layui-input">
+			</div>
+		</div>
+		<div class="layui-form-item layui-input-inline">
+			<label class="layui-form-label" for="title">联系电话：</label>
+			<div class="layui-input-inline">
+				<input type="telephone" name="link_tel" id="link_tel" placeholder="请输入联系电话" autocomplete="off" class="layui-input">
+			</div>
+		</div>
+
+		<!--日期选择部分-->
+		<!--搜索按钮-->
+		<div class="layui-input-inline searchButtton">
+			<button class="layui-btn" id="search">搜索 <i class="layui-icon">&#xe615;</i></button>
+		</div>
+	</div>
+</div>
+<table lay-filter="demo" id="demo" class="layui-table" lay-data="{id: 'js-table', height: 'full-150', cellMinWidth: 200, page: true, limit:20, url:'{:url('store/index')}',limits:[20, 40, 60, 80, 100],toolbar: '#toolbarDemo',text: {none: '暂无相关数据'}}">
+	<thead>
+		<tr>
+			<th lay-data="{type:'checkbox'}"></th>
+			<th lay-data="{field:'key', width:100, sort: true, minWidth: 100}">编号</th>
+			<th lay-data="{field:'name', width:200}">店铺名称</th>
+			<th lay-data="{field:'link_man', width:200}">联系人</th>
+			<th lay-data="{field:'link_tel', width:200}">联系电话</th>
+			<th lay-data="{field:'open_time', width:200}">营业时间</th>
+			<th lay-data="{field:'address', width:200}">地址</th>
+			<!--<th lay-data="{field:'format_add_user', width:100}">操作用户</th>-->
+			<th lay-data="{field:'format_add_time', width:200}">操作时间</th>
+			<th lay-data="{toolbar: '#operation', width:250}">操作</th>
+		</tr>
+	</thead>
+</table>
+<script type="text/html" id="toolbarDemo">
+	<div class="layui-btn-container">
+		<button class="layui-btn layui-btn-sm deleteAll">批量删除</button>
+		<a class="layui-btn layui-btn-sm j-add"  data-href="/admin/store/add" >添加</a>
+	</div>
+</script>
+<script type="text/html" id="operation">
+	<a class="layui-btn layui-btn-xs editBtn j-edit" data-href="/admin/store/edit" lay-event="edit" >编辑</a>
+	<a class="layui-btn layui-btn-xs editBtn" lay-event="info" >详情</a>
+	<a class="layui-btn layui-btn-xs editBtn j-paySet" data-href="/admin/store/paySet" lay-event="paySet" >支付设置</a>
+	<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+</script>

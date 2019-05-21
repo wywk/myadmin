@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>登录页</title>
+		<link href="__LAYUI__/css/layui.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="/static/admin/css/loginstyle/login.css" media="all">
+		<link rel="stylesheet" type="text/css" href="/static/admin/css/public/base.css" media="all">
+		<!--<link rel="stylesheet" type="text/css" href="../../static/css/login.css" />-->
+		<!--<link rel="stylesheet" type="text/css" href="../../static/css/base.css" />-->
+		<!-- <link rel="stylesheet" type="text/css" href="../../static/css/layuiAdmin.css" /> -->
+	</head>
+	<body style="background-image: url({$loginBg});">
+		<div class="mainPan">
+			<form id="doLogin" name="doLogin" method="post" action="{:url('login')}">
+			<p class="title">江苏倍速世纪智能化科技有限公司</p>
+			<p class="sTitle">后台管理系统</p>
+			<div class="loginPan">
+				<img src="/static/admin/img/login/loginstyle/bg.png" class="bgImg">
+				<div class="inputPan">
+					<img src="/static/admin/img/login/loginstyle/user.gif">
+					<input type="text" name="username" id="username" value="{$username}" class="userName" placeholder="用户名" />
+				</div>
+				<div class="inputPan">
+					<img src="/static/admin/img/login/loginstyle/pass.gif">
+					<input type="password" name="password" id="password" value="{$password}" class="userName" placeholder="密码" />
+				</div>
+				<div class="inputPan">
+					<img src="/static/admin/img/login/loginstyle/login.gif">
+					<input type="text" name="verify" id="verify"value="" class="yanzhen" placeholder="图形验证码" />
+					<div style="float: right;" class="verify_a" >
+						{:captcha_img()}
+						<!--<img src="{:captcha_img()}">-->
+					</div>
+
+				</div>
+				
+				<div class="labelPan">
+					<!-- <span class="remember"><input type="checkbox" name="" id="" value="" />记住密码</span> -->
+					<label>
+						<input type="checkbox" style="display: inline;height: 17px;width: 17px;margin-top:4px;position:absolute" name="remember" {if $remember} checked {/if}/>
+						<p style="display: inline;margin-left: 25px">记住密码</p>
+						<!--<div class="show-box" > </div>-->
+					</label>
+					<!--<span class="forgetpass">忘记密码？</span>-->
+				</div>
+				<div class="inputPan loginBtn">
+					<button type="submit" class="submit_btn">登录</button>
+				</div>
+				<!--<div class="inputPan ">-->
+					<!--<div class="social">-->
+						<!--<span>社交账户登录</span> <a href=""><img src="../../static/images/qq.png"></a><a href=""><img src="../../static/images/weixin.png"></a>-->
+					<!--</div>-->
+					<!--<span class="register">-->
+						<!--注册账号-->
+					<!--</span>-->
+				<!--</div>-->
+				<!--</div>-->
+			</form>
+			</div>
+
+
+
+		<script src="__LAYUI__/layui.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="__JS__/jquery.min.js?v=2.1.4"></script>
+		<script src="__JS__/jquery-3.2.1.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="__LAYUI__/layui.all.js"></script>
+		<script type="text/javascript" src="__JS__/jquery.form.js"></script>
+		<script type="text/javascript" src="__JS__/jparticle.jquery.js"></script>
+		<script type="text/javascript">
+            //刷新验证码
+            (function(){
+                $('.verify_a img').attr('title', '点击获取').addClass('verifyimg');
+                $('.verify_a img').on('click', function(){
+                    this.src='{:captcha_src()}?refresh='+Math.random();
+                });
+            })();
+            $(function(){
+                $('#doLogin').ajaxForm({
+                    beforeSubmit: checkForm, // 此方法主要是提交前执行的方法，根据需要设置
+                    success: complete, // 这是提交后的方法
+                    dataType: 'json'
+                });
+            });
+
+            function checkForm(){
+                var username = $.trim($('#username').val());
+                var password = $.trim($('#password').val());
+                var verify = $.trim($('#verify').val());
+
+                if ('' == username) {
+                    layer.msg('请输入登录用户名', {icon:5,time:2000}, function(index){
+                        layer.close(index);
+                    });
+                    return false;
+                }
+                if ('' == password) {
+                    layer.msg('请输入登录密码', {icon:5,time:2000}, function(index){
+                        layer.close(index);
+                    });
+                    return false;
+                }
+                // if ('' == verify) {
+                //     layer.msg('请输入验证码', {icon:5,time:2000}, function(index){
+                //         layer.close(index);
+                //     });
+                //     return false;
+                // }
+                $('.submit_btn').val('登录中...').attr('disabled', true);
+                return true;
+            }
+
+            function complete(data){
+                if (data.code == 1) {
+                    layer.msg(data.msg, {icon:6,time:2000}, function(index){
+                        layer.close(index);
+                        window.location.href = data.url;
+                    });
+                } else {
+                    layer.msg(data.msg, {icon:5,time:2000});
+                    $('.submit_btn').val('立即登录').attr('disabled', false);
+                    return false;
+                }
+            }
+            // if (window != top) {
+            //     top.location.href = location.href;
+            // }
+		</script>
+	</body>
+</html>

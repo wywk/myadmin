@@ -1,0 +1,60 @@
+<div class="layui-row container">
+	<div class="searchGroup layui-form">
+		<div class="layui-form-item layui-input-inline">
+			<label class="layui-form-label" for="title">用户名称：</label>
+			<div class="layui-input-inline">
+				<input type="text" name="user_name" id="user_name" placeholder="请输入用户名称" autocomplete="off" class="layui-input">
+			</div>
+		</div>
+		<div class="layui-form-item layui-input-inline">
+			<label class="layui-form-label" for="title">手机号码：</label>
+			<div class="layui-input-inline">
+				<input type="text" name="phone" id="phone" placeholder="请输入手机号码" autocomplete="off" class="layui-input">
+			</div>
+		</div>
+		<div class="layui-form-item layui-input-inline">
+			<label class="layui-form-label">账号状态：</label>
+			<div class="selectContent layui-input-inline">
+				<select name="status" lay-verify="required" id="status">
+					<option value="0">请选择</option>
+					{$status_option}
+				</select>
+			</div>
+		</div>
+		<!--日期选择部分-->
+		{$clendar}
+		<!--搜索按钮-->
+		<div class="layui-input-inline searchButtton">
+			<button class="layui-btn" id="search">搜索 <i class="layui-icon">&#xe615;</i></button>
+		</div>
+	</div>
+</div>
+<table lay-filter="demo" id="demo" class="layui-table" lay-data="{id: 'js-table', height: 'full-150', cellMinWidth: 200, page: true, limit:20, url:'{:url('User/index')}',limits:[20, 40, 60, 80, 100],defaultToolbar:['filter'],toolbar: '#toolbarDemo',text: {none: '暂无相关数据'}}">
+	<thead>
+	<tr>
+		<th lay-data="{type:'checkbox'}" class="checkbox-id" data-id="{field:'id'}"></th>
+		<th lay-data="{field:'id', width:100, sort: true, minWidth: 100}">编号</th>
+		<th lay-data="{field:'user_name', width:300}">用户名称</th>
+		<th lay-data="{field:'format_sex', width:200, minWidth: 100">性别</th>
+		<th lay-data="{field:'phone', width:300}">手机号码</th>
+		<th lay-data="{field:'format_source_id', width:200, minWidth: 200}">注册来源</th>
+		<th lay-data="{field:'format_status', width:200, templet: '#switchTpl', minWidth: 100}">账号状态</th>
+		<th lay-data="{field:'format_add_time', width:200}">操作时间</th>
+		<th lay-data="{toolbar: '#operation'}">操作</th>
+	</tr>
+	</thead>
+</table>
+<script type="text/html" id="switchTpl">
+	<input type="checkbox" name="status" value="{{d.id}}" lay-skin="switch" lay-text="启用|停用" lay-filter="sexDemo" {{ d.status == 1 ? 'checked' : '' }}>
+</script>
+<script type="text/html" id="toolbarDemo" >
+	<div class="layui-btn-container">
+		<button class="layui-btn layui-btn-sm deleteAll">批量删除</button>
+		<button class="layui-btn layui-btn-sm j-add" data-href="/admin/user/add">添加</button>
+	</div>
+</script>
+<script type="text/html" id="operation">
+	<a class="layui-btn layui-btn-xs j-edit" data-href="/admin/user/edit" lay-event="edit" >编辑</a>
+	<a class="layui-btn layui-btn-xs"  lay-event="editPassWord" >修改密码</a>
+	<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="drop" >删除</a>
+</script>

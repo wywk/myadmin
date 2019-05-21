@@ -1,0 +1,22 @@
+<form class="layui-form css-eidtform-dialog" id="editForm">
+    <div class="layui-form-item">
+        <label class="layui-form-label">来源名称</label>
+        <div class="layui-input-block">
+            <input type="input" name="name" lay-verify="title" autocomplete="off" placeholder="请输入来源名称" class="layui-input css-width-dialog" value="{$data.name}">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">排序</label>
+        <div class="layui-input-block">
+            <input type="input" name="sort" placeholder="请输入排序" autocomplete="off" class="layui-input css-width-dialog" value="{$data.sort}">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <input type="hidden" name="id" value="{$data.id|default=0}">
+            <input type="submit" class="layui-btn layui-btn-sm" lay-filter="submit" value="提交" lay-submit/>
+        </div>
+    </div>
+</form>
+
+

@@ -1,0 +1,38 @@
+<div style="padding: 15px;">
+    <fieldset class="layui-elem-field">
+        <legend>轻量级圆形进度指示器</legend>
+        <div class="layui-field-box">
+            <!--轻量级圆形进度指示器-->
+            <div class="prg-cont rad-prg" id="indicatorContainer"></div>
+        </div>
+    </fieldset>
+</div>
+<script>
+    //以动画形式自动加载进度指示器
+    var radialObj = $('#indicatorContainer').radialIndicator({
+        radius      : 50,   //控制圆形直径大小
+        barWidth    : 15,   //控制圆形边缘厚度
+        barBgColor  : '#eeeeee', //控制圆形边缘背景色
+        barColor    : {
+            0   : '#76EE00',
+            25  : '#66CD00',
+            75  : '#EE7621',
+            100 : '#EE0000'
+        },                  //单一颜色  '#99CC33';  根据进度百分比显示对应颜色
+        format      : null, //格式指示符编号，可以是#formator ex（##，###。##）或函数(不明白)
+        frameTime   : 20,   //加载进度需要的时间
+        frameNum    : null, //定义指标中的帧数，显示百分比时默认为100，其他值默认为500(不明白)
+        fontColor   : null, //字体颜色
+        fontFamily  : null, //字体
+        fontWeight  : 'bold',//字体粗细
+        fontSize    : 20,   //字体大小
+        interpolate : true, //在范围之间插入颜色
+        percentage  : true, //是否显示百分比
+        displayNumber: true,//是否隐藏数字
+        roundCorner : false, //在填充栏中有圆角
+        minValue    : 0,    //最小百分比
+        maxValue    : 100,  //最大百分比
+        initValue   : 0     //初始百分比
+    }).data('radialIndicator');
+    radialObj.animate(90);  //动画
+</script>
